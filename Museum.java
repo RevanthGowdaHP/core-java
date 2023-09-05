@@ -2,7 +2,7 @@ class Museum{
 
 int MuseumID;
 int sqFeet;
-String typesOfSections[] = {"Art Section","Craft","History","Cultural","Technology"};
+String typesOfSections[] ;
 int old;
 String location;
 
