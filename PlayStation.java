@@ -2,7 +2,7 @@ class PlayStation{
 
 int id;
 int noOfGames;
-String typesOfGames[] = {"GTA 5","BGMI","Red Redemtions","Fortnite","FIFA"};
+String typesOfGames[] ;
 int startTime;
 int endTime;
 
