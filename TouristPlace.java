@@ -2,7 +2,7 @@ class TouristPlace{
 
 int agencyID;
 int packages;
-String placeNames[] = {"Manglore","Udupi","Gokarana","Goa","Apsarakonda Falls"};
+String placeNames[] ;
 int noOfDays;
 String mode;
 
