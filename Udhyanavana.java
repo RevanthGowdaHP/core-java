@@ -1,7 +1,7 @@
  class Udhyanavana {
     int id;
     int noOfGates;
-    String flowers[] = {"Hibiscus", "Jasmin", "Rose", "Mallige", "MariGold"};
+    String flowers[] ;
     int startTime;
     int endTime;
 
