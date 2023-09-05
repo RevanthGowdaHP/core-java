@@ -2,7 +2,7 @@ class Library{
 
 int libraryID;
 int noOfLibrarian;
-String categories[]  = {"Engineering","Politics","Geograpy","Novels","Dictionary"};
+String categories[]  ;
 int noOfSeats;
 String type;
 
