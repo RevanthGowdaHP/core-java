@@ -2,7 +2,7 @@ class ZOO{
 
 int ZOOID;
 int sqFeet;
-String typesOfSections[] = {"Food Section","Birds","Reptails","Carnivorus","Aquatic"};
+String typesOfSections[] ;
 int old;
 String location;
 
