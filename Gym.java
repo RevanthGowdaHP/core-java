@@ -2,7 +2,7 @@ class Gym{
 
 int id;
 int price;
-String typesOfEquipment[] = {"Dumbell","Rowing Machine","Kettlebell","Machine fly","Dip Bar"};
+String typesOfEquipment[] ;
 int startTime;
 int endTime;
 
