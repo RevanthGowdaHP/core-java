@@ -2,10 +2,15 @@ class Library{
 
 int libraryID;
 int noOfLibrarian;
-String categories[];
+String categories[]  = {"Engineering","Politics","Geograpy","Novels","Dictionary"};
 int noOfSeats;
 String type;
 
+
+public Library(){
+	this(1,4,new String[]{"Engineering","Politics","Geograpy","Novels","Dictionary"},20,"Public Library");
+	System.out.println("default constructor");
+}
 public Library(int libraryID, int noOfLibrarian , String categories[] , int noOfSeats , String type){
 
 this.libraryID = libraryID;
@@ -31,10 +36,10 @@ System.out.println("Books Categories available are :"+categories[book]);
 }
 public void displayDetails(){
 
-System.out.println("Library ID :"+libraryID);
-System.out.println("Number of Librarians : "+noOfLibrarian);
-System.out.println("Number of seats in Library :"+noOfSeats);
-System.out.println("Type of Library : "+type);
+System.out.println("Library ID :"+this.libraryID);
+System.out.println("Number of Librarians : "+this.noOfLibrarian);
+System.out.println("Number of seats in Library :"+this.noOfSeats);
+System.out.println("Type of Library : "+this.type);
 
 
 

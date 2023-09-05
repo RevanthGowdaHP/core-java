@@ -2,10 +2,13 @@ class Gym{
 
 int id;
 int price;
-String typesOfEquipment[];
+String typesOfEquipment[] = {"Dumbell","Rowing Machine","Kettlebell","Machine fly","Dip Bar"};
 int startTime;
 int endTime;
 
+public Gym(){
+	this(1,1000,new String[]{"Dumbell","Rowing Machine","Kettlebell","Machine fly","Dip Bar"},5,11);
+}
 public Gym(int id, int price , String typesOfEquipment[] , int startTime , int endTime){
 
 this.id = id;
@@ -31,10 +34,10 @@ System.out.println("Types Of Equipment in Gym :"+typesOfEquipment[lats]);
 }
 public void  displayDetails(){
 
-System.out.println("Gym ID :"+id);
-System.out.println("Gym price for Month:Rs "+price);
-System.out.println("Start Time of Gym:"+startTime+"am");
-System.out.println("End Time of Gym : "+endTime+"pm");
+System.out.println("Gym ID :"+this.id);
+System.out.println("Gym price for Month:Rs "+this.price);
+System.out.println("Start Time of Gym:"+this.startTime+"am");
+System.out.println("End Time of Gym : "+this.endTime+"pm");
 
 
 

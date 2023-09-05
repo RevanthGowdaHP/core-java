@@ -2,9 +2,13 @@ class TouristPlace{
 
 int agencyID;
 int packages;
-String placeNames[];
+String placeNames[] = {"Manglore","Udupi","Gokarana","Goa","Apsarakonda Falls"};
 int noOfDays;
 String mode;
+
+public TouristPlace(){
+	this(1,10000,new String[]{"Manglore","Udupi","Gokarana","Goa","Apsarakonda Falls"},12,"Mini Bus");
+}
 
 public TouristPlace(int agencyID, int packages , String placeNames[] , int noOfDays , String mode){
 
@@ -31,10 +35,10 @@ System.out.println("Name of Places to visit :"+placeNames[photo]);
 }
 public void displayDetails(){
 
-System.out.println("Agency ID :"+agencyID);
-System.out.println("Package price is :Rs "+packages);
-System.out.println("No of days :"+noOfDays);
-System.out.println("Mode of Transport : "+mode);
+System.out.println("Agency ID :"+this.agencyID);
+System.out.println("Package price is :Rs "+this.packages);
+System.out.println("No of days :"+this.noOfDays);
+System.out.println("Mode of Transport : "+this.mode);
 
 
 

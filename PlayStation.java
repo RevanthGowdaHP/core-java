@@ -2,10 +2,13 @@ class PlayStation{
 
 int id;
 int noOfGames;
-String typesOfGames[];
+String typesOfGames[] = {"GTA 5","BGMI","Red Redemtions","Fortnite","FIFA"};
 int startTime;
 int endTime;
 
+public PlayStation(){
+	this(1,5,new String[]{"GTA 5","BGMI","Red Redemtions","Fortnite","FIFA"},11,6);
+}
 public PlayStation(int id, int noOfGames , String typesOfGames[] , int startTime , int endTime){
 
 this.id = id;
@@ -31,10 +34,10 @@ System.out.println("Types Of Games in PlayStation :"+typesOfGames[box]);
 }
 public void  displayDetails(){
 
-System.out.println("PlayStation ID :"+id);
-System.out.println("Number of games in PlayStation:"+noOfGames);
-System.out.println("Start Time of PlayStation:"+startTime+"am");
-System.out.println("End Time of PlayStation : "+endTime+"pm");
+System.out.println("PlayStation ID :"+this.id);
+System.out.println("Number of games in PlayStation:"+this.noOfGames);
+System.out.println("Start Time of PlayStation:"+this.startTime+"am");
+System.out.println("End Time of PlayStation : "+this.endTime+"pm");
 
 
 
