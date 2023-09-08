@@ -26,5 +26,10 @@ class PatientBoy{
 
         patient.setDateOfBirth("1990-05-15");
         System.out.println("Date of Birth: " + patient.getDateOfBirth());
+
+	patient.setAge(56);
+	    System.out.println(" Age of patient"+ patient.getAge());
+    
+        patient.setAttenderName(patient.getattenderName());
     }
 }
