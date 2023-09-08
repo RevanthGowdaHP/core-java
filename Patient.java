@@ -7,6 +7,8 @@ public class Patient {
     private long phoneNo;
     private String consultingDoctor;
     private String dateOfBirth;
+    private int age;
+    private String attenderName;
 
     public void setPatientID(int patientID) {
         this.patientID = patientID;
@@ -71,4 +73,20 @@ public class Patient {
     public String getDateOfBirth() {
         return dateOfBirth;
     }
+
+    public void setAge(int age){
+        this.age = age;
+    }
+    public int getAge(){
+        return age;
+    }
+
+    public void setattenderName(String attenderName){
+        this.attenderName = attenderName;
+    }
+    public String getattenderName(){
+        return attenderName;
+    }
 }
+
+
