@@ -1,0 +1,3 @@
+class FaceBook extends SocialMedia{
+     
+}

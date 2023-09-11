@@ -1,0 +1,2 @@
+class Modiji extends PMofBharat{
+}

@@ -1,0 +1,2 @@
+class RohitSharma extends Cricketer{
+}
