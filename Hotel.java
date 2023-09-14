@@ -4,15 +4,23 @@ int index;
 
 public boolean addMenu(String menu){
    boolean isAdded = false;
-   if( Menu != null){
-      menus[index] = menu;
-	  isAdded = true;
-	  index++;
-   
+   if( index<menus.length){
+	    if( menu != null){
+			boolean duol = checkDuplicateName(menu);
+			if(duol == false){
+			  menus[index] = menu;
+			  isAdded = true;
+			  index++;
+			}
    }
    else{
-   System.out.println(" New menu not added");
+   System.out.println(" Cannot give null value");
    }
+   }
+   else{
+	   System.out.println(" Menu list exceeded in length");
+   }
+  
    return isAdded;
 }
 
@@ -24,5 +32,15 @@ public void getMenu(){
    }
 }
 
+public boolean checkDuplicateName(String menuu){
+	boolean check = false;
+	for(int hote = 0 ; hote<menus.length; hote++){
+		if(menus[hote]== menuu){
+			check = true;
+			System.out.println("'"+menuu+"' already exist.");
+		}
+	}
+	return check;
+}
 
 }
