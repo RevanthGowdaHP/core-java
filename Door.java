@@ -1,2 +1,0 @@
-class Door extends Furniture{
-}

@@ -1,2 +1,0 @@
-class Earing extends Jewelary{
-}

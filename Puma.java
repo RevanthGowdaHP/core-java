@@ -1,2 +1,0 @@
-class Puma extends ClothingCompany{
-}
