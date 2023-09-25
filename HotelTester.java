@@ -15,5 +15,6 @@ hot.addMenu("Snacks");
 hot.addMenu("Rolls");
 hot.addMenu("dosas");
 hot.getMenu();
+hot.delete("Chats");
 }
 }

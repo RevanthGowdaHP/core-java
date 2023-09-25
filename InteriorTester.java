@@ -15,6 +15,7 @@ mat.addMaterials("Metal");
 mat.addMaterials("Hardboard");
 mat.addMaterials("CardBoard");
 mat.getMaterials();
+mat.deleteMaterial("Tiles");
 
 
 }

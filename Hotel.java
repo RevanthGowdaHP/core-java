@@ -32,6 +32,20 @@ public void getMenu(){
    }
 }
 
+public void delete(String menu){
+		String newMenu[] = new String[menus.length-1];
+		int muse=0;
+		for(int dus=0; dus<menus.length ;dus++){
+			if(menus[dus] != menu){
+				newMenu[muse++] = menus[dus];
+			}
+		}
+		System.out.println("The deleted menu name is :" +menu);
+		System.out.println("The New menu are:");
+		for(int mo = 0 ; mo < newMenu.length; mo++){
+			System.out.println(newMenu[mo]);
+		}
+	}
 public boolean checkDuplicateName(String menuu){
 	boolean check = false;
 	for(int hote = 0 ; hote<menus.length; hote++){

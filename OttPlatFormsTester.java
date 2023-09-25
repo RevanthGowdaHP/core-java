@@ -10,7 +10,9 @@ class OttPlatFormsTester{
 	ott.addMovies("Vikram");
 	ott.addMovies("Samrat");
 	ott.addMovies("Samrat");
-	ott.addMovies("Samrat");
 	ott.getMovieNames();
+	String movie = ott.searchMovieName("Vikram");
+	System.out.println(" Get permium to watch this movie  '"+movie+"'");
+	ott.deleteMovieName("Maanikya");
 	}
 }

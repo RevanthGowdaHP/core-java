@@ -42,5 +42,30 @@ public boolean checkMaterialExist(String material){
 return check;
 }
 
+public boolean deleteMaterial(String material){
+	boolean isDeleted = false;
+	int sum = 0;
+	String newMaterial[] = new String[materials.length-1];
+	for(int rial = 0 ; rial<materials.length; rial++){
+		if(materials[rial]!= material){
+			newMaterial[sum++]=materials[rial];
+		}
+	}
+	System.out.println("The deleted material name is :" +material);
+		System.out.println("The New materials are:");
+		for(int mo = 0 ; mo < newMaterial.length; mo++){
+			System.out.println(newMaterial[mo]);
+		}
+		 return isDeleted;
+}
 
+ public String searchMaterial(String material){
+	 String inventory = null;
+	 for(int inv = 0 ; inv< materials.length ; inv ++){
+		 if(materials[inv]== material){
+			 inventory = materials[inv];
+		 }
+	 }
+	 return inventory;
+ }
 }

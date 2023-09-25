@@ -12,10 +12,12 @@ shop.addchatName("Gobi");
 shop.addchatName("Baby Corn");
 shop.addchatName("Samosa Masala");
 shop.addchatName("cutlet ");
+shop.addchatName("cutlet ");
 
 
 shop.getchatName();
 shop.addchatName("butter Masala");
+shop.delete("Papad");
 
 }
 }

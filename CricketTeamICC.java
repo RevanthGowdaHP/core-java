@@ -16,5 +16,6 @@ cric.addPlayerNames("SRK");
 cric.addPlayerNames("Dravid");
 cric.addPlayerNames("SRK");
 cric.getPlayerName();
+cric.delete("Rahul");
 }
 }

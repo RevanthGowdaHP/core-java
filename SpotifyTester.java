@@ -15,5 +15,6 @@ sot.addMusic("Heeriye");
 sot.addMusic("People");
 
 sot.getMusic();
+sot.delete("Jalebi");
 }
 }

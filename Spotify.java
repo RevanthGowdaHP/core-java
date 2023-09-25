@@ -29,6 +29,20 @@ class Spotify {
             System.out.println("                     " + musics[ind]);
         }
     }
+	public void delete(String music){
+		String newMusic[] = new String[musics.length-1];
+		int muse=0;
+		for(int dus=0; dus<musics.length ;dus++){
+			if(musics[dus] != music){
+				newMusic[muse++] = musics[dus];
+			}
+		}
+		System.out.println("The deleted music name is :" +music);
+		System.out.println("The New music are:");
+		for(int mo = 0 ; mo < newMusic.length; mo++){
+			System.out.println(newMusic[mo]);
+		}
+	}
 
     public boolean checkDuplicate(String music) {
         boolean check = false;
