@@ -1,109 +1,109 @@
 package com.xworkz.playstore;
 
-import com.xworkz.playstore.application.PlayStore;
-import com.xworkz.playstore.hub.Application;
+import com.xworkz.playstore.details.Details;
+import com.xworkz.playstore.software.hub.SoftwareHub;
+import com.xworkz.playstore.software.hub.impl.PlayStore;
+
 
 import java.util.Scanner;
 
 public class ApplicationExecutor {
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println(" Enter the size of Array:");
-        int size = scanner.nextInt();
-        PlayStore playStore = new PlayStore(size);
 
-        for (int scan = 0 ; scan <size; scan++){
-            Application application= new Application();
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter number of games to be added: ");
+        int size=sc.nextInt();
+        System.out.println("---------------------------------------");
+        PlayStore play= new PlayStore(size);
 
-            System.out.println("Enter app name:");
-            application.setAppName(scanner.next());
-            System.out.println("Enter app version:");
-            application.setAppVersion(scanner.next());
-            System.out.println("Enter app size:");
-            application.setAppSizeinMB(scanner.nextDouble());
-            System.out.println("Enter company name:");
-            application.setCompanyName(scanner.next());
-            System.out.println("Enter release date");
-            application.setReleaseDate(scanner.next());
-            System.out.println("Enter app type");
-            application.setAppType(scanner.next());
-            playStore.addApplication(application);
+
+
+        for (int num=0;num<size;num++){
+            Details application=new Details();
+
+//            System.out.println("Enter the game id: ");
+//            application.setAppId(sc.nextInt());
+
+            System.out.println("Enter name of the game:");
+            application.setAppName(sc.next());
+
+            System.out.println("Enter size of the game:");
+            application.setAppSizeInmb(sc.nextDouble());
+
+            System.out.println("Enter type of the game..:");
+            application.setAppType(sc.next());
+
+            System.out.println("Enter version of the game:");
+            application.setAppVersion(sc.next());
+
+            System.out.println("Enter the company name developed this game..:");
+            application.setCompanyName(sc.next());
+
+            System.out.println("Enter the release date of this game:");
+            application.setReleaseDate(sc.next());
+            play.addApplication(application);
         }
+        String input=null;
+
+        do {
+            System.out.println("press 1 to get application by name");
+            System.out.println("press 2 to get application by id");
+            System.out.println("press 3 to get application by apptype");
+            System.out.println("press 4 to get application name by type");
+            System.out.println("press 5 to get application type by name");
+            System.out.println("press 6 to get application size by name");
+            System.out.println("press 7 to get application company name by application name");
+            System.out.println("press 8 to get application version update by name");
+            int option= sc.nextInt();
+            switch (option){
+
+                case 1:System.out.println("Enter the game name to get its details:");
+                    play.getApplicationByName(sc.next());
+                    break;
+                case 2:  System.out.println("Enter game id :");
+                    play.getApplicationById(sc.nextInt());
+                    break;
+
+                case 3:System.out.println("Enter application type :");
+                    play.getApplicationByAppType(sc.next());
+                    break;
+
+                case 4:System.out.println("Enter type :");
+                    play.getApplicationNameByType(sc.next());
+                    break;
+
+                case 5:System.out.println("Enter application name:");
+                    play.getApplicationTypeByName(sc.next());
+                    break;
+
+                case 6:
+                    System.out.println("Enter application name:");
+                    play.getApplicationSizeByName(sc.next());
+                    break;
+
+                case 7:
+                    System.out.println("Enter application name:");
+                    play.getApplicationCompanyByName(sc.next());
+                    break;
+
+
+                case 8:
+                    System.out.println("Enter application name and app version:");
+                    play.updateVersionByAppName(sc.next(), sc.next());
+                    break;
+
+                default:
+                    System.out.println("Please select correct option given above:");
+            }
+            System.out.println("if you want to continue press:Y or else:N");
+            input=sc.next();
+        }while (input.equals("Y"));
+        System.out.println("Thank you! visit again:");
+
+
+}
 
 
 
-   String check = null;
-      do {
-          System.out.println("Press 1 : To get Application by Name:");
-          System.out.println("Press 2 : To get Application by ID");
-          System.out.println("Press 3 : To get Application by Type");
-          System.out.println("Press 4 : To get App name by type");
-          System.out.println("Press 5 : To get App type by name");
-          System.out.println("Press 6 : To get App size by name");
-          System.out.println("Press 7 : To get company name by App name");
-          System.out.println("Press 8 : To get App size and name by App type");
-          System.out.println("Press 9 : To update App version by app name");
-          System.out.println("Press 10 : To update Company name by app ID");
-          System.out.println("Press 11 : To delete app name from application");
-          System.out.println("Press 12 : To get All details of App");
-
-          int press = scanner.nextInt();
-          switch (press){
-              case 1:  System.out.println("Enter App Name to get Application");
-                  playStore.getApplicationByName(scanner.next());
-                  break;
-              case 2:  System.out.println("Enter App ID to get Application");
-                  playStore.getApplicationByID(scanner.nextInt());
-                  break;
-              case 3:
-                  System.out.println("Enter App type to get Application");
-                  playStore.getApplicationByAppType(scanner.next());
-                  break;
-              case 4:  System.out.println("Enter App type to get App name");
-                  playStore.getApplicationNameByType(scanner.next());
-                  break;
-              case 5: System.out.println("Enter App name to get App type");
-                  playStore.getApplicationTypeByName(scanner.next());
-                  break;
-              case 6:
-                  System.out.println("Enter App name to get App size");
-                  playStore.getApplicationSizeByName(scanner.next());
-                  break;
-              case 7: System.out.println("Enter App name to get Company Name");
-                  playStore.getApplicationCompanyByName(scanner.next());
-                  break;
-              case 8: System.out.println("Enter App type to get App size and name");
-                  playStore.getApplicationSizeAndNameByType(scanner.next());
-                  break;
-              case 9:  System.out.println("Enter App name and New version to update the version");
-                  playStore.updateAppVersionByAppName(scanner.next(),scanner.next());
-                  break;
-              case 10:  System.out.println("Enter App id and New company name to update company name");
-                  playStore.updateCompanyNameByID(scanner.nextInt(),scanner.next());
-                  break;
-              case 11:  System.out.println("Enter App name to delete ");
-                  playStore.deleteApplicationByAppName(scanner.next());
-                  break;
-              case 12:
-                  System.out.println(" Get All application details ");
-                  playStore.getAllApplicationName();
-                  break;
-              default:
-                  System.out.println(" Please Enter valid option");
-          }
-
-          System.out.println("To continue Press : Y else Press : N ");
-          check = scanner.next();
-
-
-
-      }while (check.equals("Y"));
-        System.out.println(" Thanks for using PlayStore ");
-
-
-
-
-
-
-    }
 }

@@ -1,4 +1,4 @@
-package com.xworkz.playstore.hub;
+package com.xworkz.playstore.details;
 
 import lombok.*;
 
@@ -6,19 +6,32 @@ import lombok.*;
 @Getter
 @AllArgsConstructor
 @Builder
-public class Application {
+public class Details {
     private int appId;
     private String appName;
     private String appVersion;
-    private double appSizeinMB;
+    private  double appSizeInmb;
     private String appType;
     private String releaseDate;
     private String companyName;
 
 
-    public Application(){
+
+    public Details(){
 
 
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+

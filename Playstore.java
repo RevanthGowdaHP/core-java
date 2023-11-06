@@ -1,85 +1,187 @@
-package com.xworkz.octseventask;
+package com.xworkz.playstore.software.hub.impl;
 
-public class Playstore {
-    String appNames[]= new String[5];
+import com.xworkz.playstore.details.Details;
+import com.xworkz.playstore.software.hub.SoftwareHub;
+
+import java.util.Arrays;
+
+public class PlayStore implements SoftwareHub {
+    public Details []applications;
     int index;
-
-
-    //create
-    public void addAppNames(String appName){
-        if(index<appNames.length){
-            if(appName!=null){
-                boolean isExist = duplicate(appName);
-                if(isExist==false){
-                appNames[index++]=appName;
-                System.out.println("'"+appName+"' added to PlayStore");
-            }
-            }
-            else {
-                System.out.println(" NOTE: 'App name can not be null'");
-            }
-        }else {
-            System.out.println("     No space available in PlayStore to add '"+appName+"'");
-        }
+    int idInc=1;
+    public PlayStore(int size){
+        applications = new Details[size];
     }
 
-    //read
-    public void readAppName(){
-        System.out.println(" ");
-        System.out.println("These are the Apps in PlayStore:");
-        for (int read=0; read<appNames.length; read++){
-            if(appNames[read]!=null){
 
-                System.out.println("                            '"+appNames[read]+"'");
-
-            }
+    @Override
+    public boolean addApplication(Details applications) {
+        boolean isAdded=false;
+        if(applications!=null){
+            this.applications[index]=applications;
+            this.applications[index].setAppId(++idInc);
+            index++;
         }
-    }
-    //update
-    public  boolean updateAppName(String oldAppName, String newAppName){
-        boolean isUpdate=false;
-        for (int upd=0;upd<appNames.length; upd++){
-            if(appNames[upd]==oldAppName){
-                appNames[upd]= newAppName;
-                isUpdate = true;
-
-            }
+        else{
+            System.out.println("null cannot be added.");
         }
-        if (isUpdate){
-            System.out.println("'"+oldAppName+"' is replaced by '"+newAppName+"' in PlayStore");
-        }else {
-            System.out.println("'"+oldAppName+"' not found in PlayStore");
-        }
-        return isUpdate;
+        return isAdded;
     }
 
-    //delete
-    public void deleteAppName(String delName){
-        String afterDeletedAppName[]= new String[appNames.length-1];
-        int index=0;
-        for(int del=0; del< appNames.length;del++){
-            if(appNames[del]!=delName){
-                afterDeletedAppName[index++]=appNames[del];
-            }
+    @Override
+    public Details getApplicationByName(String appName) {
+        Details app=null;
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++");
+        for (int index=0;index<applications.length;index++){
 
+            if (applications[index].getAppName().equals(appName)){
+                System.out.println("Application name found...");
+                app=applications[index];
+                System.out.println("This is the details of ::::"+appName);
+                System.out.println("App name: "+applications[index].getAppName()+"\n"
+                        +"App id: "+applications[index].getAppId()+"\n"+
+                        "App size: "+applications[index].getAppSizeInmb()+"\n"+
+                        "App company name: "+applications[index].getCompanyName()+"\n"+
+                        "App released date: "+applications[index].getReleaseDate()+"\n"+"app version: "+applications[index].getAppVersion());
+            }
         }
-        System.out.println(" ");
-        System.out.println("  '"+delName+"' is the deleted App from PlayStore");
-        System.out.println("These are the Apps in PlayStore after deletion");
-        for (int after=0;after<afterDeletedAppName.length;after++){
-            System.out.println("                                              '"+afterDeletedAppName[after]+"'");
-        }
+        return app;
     }
 
-    public boolean duplicate(String dulpiName){
-        boolean isdup=false;
-        for (int dup =0; dup<appNames.length; dup++){
-            if(appNames[dup]==dulpiName){
-                isdup=true;
-                System.out.println("'"+dulpiName+"' exist already in PlayStore");
+    @Override
+    public int getApplicationById(int idName) {
+        System.out.println("------------------------------------------------------");
+        int  inValue=0;
+        for (int index=0;index<applications.length;index++){
+            if (applications[index].getAppId()==idName){
+                System.out.println("Application id matched....");
+                System.out.println("App name: "+applications[index].getAppName()+"\n"
+                        +"App id: "+applications[index].getAppId()+"\n"
+                        +"App size: "+applications[index].getAppSizeInmb()+"\n"
+                        +"App developed by company: "+applications[index].getCompanyName()+"\n"
+                        +"App releasing date: "+applications[index].getReleaseDate());
+            }
+        }
+        return inValue;
+    }
+
+    @Override
+    public String getApplicationByAppType(String appType) {
+        System.out.println("------------------------------------------------");
+        for (int index=0;index<applications.length;index++){
+            if (applications[index].getAppType().equals(appType)){
+                System.out.println("Application type matched....");
+                System.out.println("App name: "+applications[index].getAppName()+"\n"
+                        +"App id: "+applications[index].getAppId()+"\n"
+                        +"App size: "+applications[index].getAppSizeInmb()+"\n"
+                        +"App developed by company: "+applications[index].getCompanyName()+"\n"
+                        +"App releasing date: "+applications[index].getReleaseDate());
+            }
+        }
+        return  appType;
+    }
+
+    @Override
+    public String getApplicationNameByType(String applicationType) {
+        System.out.println("++++++++++++++++++++++++++++++++++++++++");
+        for (int index=0;index<applications.length;index++){
+            if (applications[index].getAppType().equals(applicationType)){
+                System.out.println("Application type matched....");
+                System.out.println("App name: "+applications[index].getAppName());
+            }
+        }
+        return applicationType;
+    }
+
+    @Override
+    public String getApplicationTypeByName(String applicationName) {
+        System.out.println("==================================================");
+        for (int index=0;index<applications.length;index++){
+            if (applications[index].getAppName().equals(applicationName)){
+                System.out.println("Application name matched....");
+                System.out.println(applicationName+" type is: "+applications[index].getAppType()+" application");
+            }
+        }
+        return applicationName;
+    }
+
+    @Override
+    public String getApplicationSizeByName(String applicationName) {
+        System.out.println("==================================================");
+        for (int index=0;index<applications.length;index++){
+            if (applications[index].getAppName().equals(applicationName)){
+                System.out.println("Application name matched....");
+                System.out.println(applicationName+" size is: "+applications[index].getAppSizeInmb()+"mb");
+            }
+        }
+        return applicationName;
+    }
+
+    @Override
+    public String getApplicationCompanyByName(String applicationName) {
+        System.out.println("==================================================");
+        for (int index=0;index<applications.length;index++){
+            if (applications[index].getAppName().equals(applicationName)){
+                System.out.println("Application name matched....");
+                System.out.println(applicationName+" devoloped by company: "+applications[index].getCompanyName());
+            }
+        }
+        return applicationName;
+    }
+
+    @Override
+    public boolean updateVersionByAppName(String name, String newVersion) {
+        boolean isUpdated=false;
+        for(int num=0;num<applications.length;num++){
+            if (applications[num].getAppName().equals(name))
+                applications[num].setAppVersion(newVersion);
+            isUpdated=true;
+            System.out.println("version updated");
+        }
+        return isUpdated;
+    }
+
+    @Override
+    public boolean updateCompanyNameAndSizeByAppName(String appName, String newcompanyName, Double newAppSize) {
+        boolean isWorkDone=false;
+        for (int num=0;num<applications.length;num++){
+            if (applications[num].getAppName().equals(appName)){
+                applications[num].setCompanyName(newcompanyName);
+                applications[num].setAppSizeInmb(newAppSize);
+                System.out.println("all things updated");
             }
 
         }
-        return isdup;
+        return  isWorkDone;
+    }
+
+    @Override
+    public void deleteApplicationByName(String appName) {
+        System.out.println("invoked delete method");
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++");
+        int index;
+        int newIndex;
+        for (index=0,newIndex=0;index<applications.length;index++){
+            if (!applications[index].getAppName().equals(appName)){
+                applications[newIndex++]=applications[index];
+            }
+        }
+        applications= Arrays.copyOf(applications,newIndex);
+        newApplication(applications);
+    }
+
+    @Override
+    public void newApplication(Details[] application) {
+        for (int index=0;index<application.length;index++){
+            System.out.println("new applications");
+            System.out.println("Application name: "+application[index].getAppName()+"\n"
+                    +"application id: "+application[index].getAppId()+"\n"
+                    +"app devoloped company: "+application[index].getCompanyName()+"\n"+"app size: "+application[index].getAppSizeInmb()
+                    +"\n"+"app relese date: "+application[index].getReleaseDate());
+            System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++" +
+                    "");
+     }
     }
 }
+
+
